@@ -155,7 +155,7 @@ cv2.destroyAllWindows()
 ### viii) RGB and BGR to YCrCb
 ```
 import cv2
-img = cv2.imread('flower.jpg')
+img = cv2.imread('pic.jpg')
 img = cv2.resize(img,(300,200))
 cv2.imshow('Original RGB Image',img)
 YCrCb1 = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
@@ -166,17 +166,51 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 ## Output:
+![8](https://github.com/janani225/COLOR_CONVERSIONS_OF-IMAGE/assets/113497333/290306df-6b7d-4c10-b6ba-4c7b331c2de0)
 
 
 
 ### ix) Split and merge RGB Image
-<br>
-<br>
+```
+import cv2
+img = cv2.imread('pic.jpg',1)
+img = cv2.resize(img,(300,200))
+R = img[:,:,2]
+G = img[:,:,1]
+B = img[:,:,0]
+cv2.imshow('R-Channel',R)
+cv2.imshow('G-Channel',G)
+cv2.imshow('B-Channel',B)
+merged = cv2.merge((B,G,R))
+cv2.imshow('Merged RGB image',merged)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+## Output:
+
+![9](https://github.com/janani225/COLOR_CONVERSIONS_OF-IMAGE/assets/113497333/c43a1338-debb-4615-8e84-f24c693616f3)
+
 
 ### x) Split and merge HSV Image
-<br>
-<br>
+```
+import cv2
+img = cv2.imread("pic.jpg",1)
+img = cv2.resize(img,(300,200))
+img=cv2.cvtColor(img,cv2.COLOR_RGB2HSV)
+H,S,V=cv2.split(img)
+cv2.imshow('Hue',H)
+cv2.imshow('Saturation',S)
+cv2.imshow('Value',V)
+merged = cv2.merge((H,S,V))
+cv2.imshow('Merged',merged)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
 
+## Output:
+
+![10](https://github.com/janani225/COLOR_CONVERSIONS_OF-IMAGE/assets/113497333/7aecd053-afa5-45cc-bcf4-582b9ccc9c5b)
 
 
 
